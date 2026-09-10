@@ -1,19 +1,32 @@
 const menuButton = document.querySelector('.menu-toggle');
-const navLinks = document.querySelector('.nav-links');
+const menu = document.querySelector('.menu');
 
 menuButton?.addEventListener('click', () => {
-  const open = navLinks.classList.toggle('open');
+  const open = menu.classList.toggle('open');
   menuButton.setAttribute('aria-expanded', String(open));
 });
 
-document.querySelectorAll('.nav-links a').forEach(link => {
+document.querySelectorAll('.menu a').forEach(link => {
   link.addEventListener('click', () => {
-    navLinks.classList.remove('open');
+    menu.classList.remove('open');
     menuButton?.setAttribute('aria-expanded', 'false');
   });
 });
 
-document.getElementById('year').textContent = new Date().getFullYear();
+const progress = document.querySelector('.scroll-progress');
+const glow = document.querySelector('.cursor-glow');
+
+function updateScroll() {
+  const max = document.documentElement.scrollHeight - window.innerHeight;
+  progress.style.width = `${max > 0 ? (window.scrollY / max) * 100 : 0}%`;
+}
+window.addEventListener('scroll', updateScroll, { passive: true });
+updateScroll();
+
+window.addEventListener('pointermove', (event) => {
+  glow.style.left = `${event.clientX}px`;
+  glow.style.top = `${event.clientY}px`;
+}, { passive: true });
 
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -24,24 +37,9 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.12 });
 
-document.querySelectorAll('.project, .capability, .timeline-item, .principles > div').forEach(el => {
-  el.style.transition = 'opacity .6s ease, transform .6s ease';
-  el.style.opacity = '0';
-  el.style.transform = 'translateY(14px)';
+document.querySelectorAll('.reveal').forEach((el, index) => {
+  el.style.transitionDelay = `${Math.min(index * 45, 220)}ms`;
   observer.observe(el);
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.is-visible').forEach(el => {
-    el.style.opacity = '1';
-    el.style.transform = 'none';
-  });
-});
-
-const visibilityObserver = new MutationObserver(() => {
-  document.querySelectorAll('.is-visible').forEach(el => {
-    el.style.opacity = '1';
-    el.style.transform = 'none';
-  });
-});
-visibilityObserver.observe(document.body, { subtree: true, attributes: true, attributeFilter: ['class'] });
+document.getElementById('year').textContent = new Date().getFullYear();

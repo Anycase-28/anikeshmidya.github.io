@@ -1,43 +1,48 @@
-# Anikesh — Portfolio
+# Anikesh Midya — Portfolio V2
 
-A responsive, no-framework portfolio site for Anikesh, focused on professional software engineering work, government technology delivery, operational systems and full-stack development.
+A deliberately non-generic portfolio for Anikesh Midya, Consultant / Full Stack Web Developer.
 
-## Files
+## Design direction
 
-- `index.html` — content and semantic structure
-- `styles.css` — responsive visual system
-- `script.js` — navigation, year and lightweight reveal animation
+- Institutional / technical foundation
+- Modernist typography and oversized editorial headings
+- Metallic gradient language
+- Restrained acid-green signal colour
+- Technical micro-labels and indexing
+- Motion used as system feedback rather than decoration
+- Responsive and accessible
+- No frontend framework required
 
-## Run locally
+## Deploying to GitHub Pages
 
-No build step is required.
+Keep `index.html` at the repository root.
 
-Open `index.html` directly in a browser, or serve the folder with any static web server.
+Upload:
 
-Example with Python:
+- `index.html`
+- `styles.css`
+- `script.js`
+- `assets/anikesh.jpg`
 
-```bash
-python -m http.server 5500
-```
+Then use GitHub Pages → Deploy from a branch → `main` → `/ (root)`.
 
-Then open `http://localhost:5500`.
+## Before public release
 
-## Before publishing
+Replace `YOUR_EMAIL@example.com` in `index.html`.
 
-1. Replace `YOUR_EMAIL@example.com` in `index.html`.
-2. Add a real CV/resume link if desired.
-3. Add verified GitHub/LinkedIn links if you want them exposed.
-4. Replace or supplement project descriptions with approved client/project details where confidentiality permits.
-5. If the site is deployed in a restricted environment, remove the Google Fonts import and use a local/system font stack.
+The portrait is taken from the CV supplied for this portfolio. Do not publish the CV itself until a public-safe version has been prepared; the supplied CV contains personal information that is not needed on the public site.
 
-## Design principles used
+## Content policy for future edits
 
-- Mobile-first responsive layout
-- Semantic HTML and keyboard-accessible navigation
-- Strong typography hierarchy
-- High contrast and restrained accent colour
-- No dependency on a JavaScript framework
-- No fabricated project metrics
-- Project descriptions focus on responsibilities and engineering outcomes
-- Reduced-motion support
-- SEO metadata and basic Person structured data
+Use verified professional/project information. Do not publish confidential government system details, credentials, internal URLs, citizen data, private architecture, or unsupported performance claims.
+
+## Recommended next iteration
+
+Add:
+- public-safe CV PDF
+- verified GitHub and LinkedIn URLs
+- project screenshots approved for publication
+- detailed case-study pages
+- custom favicon
+- sitemap.xml and robots.txt
+- custom domain
